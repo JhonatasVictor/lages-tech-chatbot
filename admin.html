@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Lages Tech</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+    <div class="admin-page-container">
+        <header class="admin-header">
+            <h1>Painel de Controle</h1>
+            <p>Lages Tech</p>
+        </header>
+
+        <nav class="admin-tabs">
+            <button data-view="products-view" class="tab-button active">Gerenciar Loja</button>
+            <button data-view="orders-view" class="tab-button">Pedidos Pendentes</button>
+            <button data-view="history-view" class="tab-button">Histórico</button>
+        </nav>
+
+        <main id="products-view" class="admin-main-content view"></main>
+
+        <main id="orders-view" class="admin-main-content view" style="display: none;"></main>
+
+        <main id="history-view" class="admin-main-content view" style="display: none;"></main>
+        
+        <main id="edit-product-view" class="admin-main-content view" style="display: none;">
+            <h2 id="product-form-title" class="form-title"></h2>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <div class="form-grid">
+                    <div class="form-group-modal"><label for="product-name">Nome do Produto</label><input type="text" id="product-name" required></div>
+                    <div class="form-group-modal"><label for="product-category">Departamento</label><input type="text" id="product-category" required></div>
+                    <div class="form-group-modal"><label for="product-price">Preço</label><input type="text" id="product-price" required></div>
+                    <div class="form-group-modal"><label for="product-stock">Estoque</label><input type="number" id="product-stock" required></div>
+                </div>
+                <div class="form-group-modal"><label for="product-image-url">Link (URL) da Imagem</label><input type="text" id="product-image-url" required></div>
+                <div class="form-group-modal"><label for="product-desc">Descrição</label><textarea id="product-desc" rows="3" required></textarea></div>
+                <div class="form-group-modal"><label for="product-keywords">Palavras-chave (separadas por vírgula)</label><input type="text" id="product-keywords" required></div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" data-action="show-view" data-view-target="products-view">Cancelar</button>
+                    <button type="submit" class="save-button">Salvar Produto</button>
+                </div>
+            </form>
+        </main>
+        
+        <main id="edit-category-view" class="admin-main-content view" style="display: none;">
+             <h2 id="category-form-title" class="form-title"></h2>
+             <form id="category-form">
+                <input type="hidden" id="category-original-name">
+                <div class="form-group-modal"><label for="category-name">Nome do Departamento</label><input type="text" id="category-name" required></div>
+                <div class="form-group-modal"><label for="category-image">Link (URL) da Imagem de Destaque</label><input type="text" id="category-image" required></div>
+                <div class="form-actions">
+                    <button type="button" class="cancel-button" data-action="show-view" data-view-target="products-view">Cancelar</button>
+                    <button type="submit" class="save-button">Salvar Departamento</button>
+                </div>
+            </form>
+        </main>
+    </div>
+
+    <script src="database.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
